@@ -1,86 +1,53 @@
 package models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "personas")
+@Getter @Setter
+@ToString
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="idpersona")
     private Long idpersona;
+    @Column(name ="identificacion")
     private Long identificacion;
+    @Column(name ="pnombre")
     private String pnombre;
+    @Column(name ="papellido")
     private String papellido;
+    @Column(name ="sapellido")
+    private String sapellido;
+    @Column(name ="fechanacimiento")
     private String fechanacimiento;
+    @Column(name ="email")
     private Character email;
+    @Column(name ="edad")
     private Integer edad;
+    @Column(name ="edadclinica")
     private Integer edadclinica;
 
-    public Long getIdpersona() {
-        return idpersona;
+    public Persona() {
     }
-
-    public void setIdpersona(Long idpersona) {
-        this.idpersona = idpersona;
-    }
-
-    public Long getIdentificacion() {
-        return identificacion;
-    }
-
-    public void setIdentificacion(Long identificacion) {
+    
+    public Persona(Long identificacion, String pnombre, String papellido, String fechanacimiento, Character email, Integer edad, Integer edadclinica) {
         this.identificacion = identificacion;
-    }
-
-    public String getPnombre() {
-        return pnombre;
-    }
-
-    public void setPnombre(String pnombre) {
         this.pnombre = pnombre;
-    }
-
-    public String getPapellido() {
-        return papellido;
-    }
-
-    public void setPapellido(String papellido) {
         this.papellido = papellido;
-    }
-
-    public String getFechanacimiento() {
-        return fechanacimiento;
-    }
-
-    public void setFechanacimiento(String fechanacimiento) {
         this.fechanacimiento = fechanacimiento;
-    }
-
-    public Character getEmail() {
-        return email;
-    }
-
-    public void setEmail(Character email) {
         this.email = email;
-    }
-
-    public Integer getEdad() {
-        return edad;
-    }
-
-    public void setEdad(Integer edad) {
         this.edad = edad;
-    }
-
-    public Integer getEdadclinica() {
-        return edadclinica;
-    }
-
-    public void setEdadclinica(Integer edadclinica) {
         this.edadclinica = edadclinica;
-    }      
+    }        
 }
