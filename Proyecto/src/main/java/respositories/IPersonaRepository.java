@@ -1,5 +1,5 @@
 package respositories;
 
-public interface IPersona {
+public interface IPersonaRepository {
 
 }
