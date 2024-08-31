@@ -27,8 +27,8 @@ public class userServices {
     public Optional <User> getById(Long id){
         return this.iuser.findById(id);
     }
-    public Optional <User> updateByid(User request , Long id){
+    /*public Optional <User> updateByid(User request , Long id){
         Optional<User> user = iuser.findById(id);
         user.
-    }
+    }*/
 }
