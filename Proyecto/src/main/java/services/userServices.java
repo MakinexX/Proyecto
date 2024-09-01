@@ -6,6 +6,7 @@ package services;
 
 import controller.PersonaController;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +18,27 @@ import respositories.IUser;
  * @author Bichin
  */
 public class userServices {
-    @Autowired IUser iuser;
-    public ArrayList<User> getusers(){
-        return (ArrayList<User>) iuser.findAll();
+    @Autowired
+   IUser iuser ;
+    public List<User> getUsuarios (){
+        return iuser.findAll();
     }
-    public User saveUser (User user)   {
-        return iuser.save(user);
+    
+    public Optional<User> getUsuario(Long id){
+        return iuser.findById(id);
     }
-    public Optional <User> getById(Long id){
-        return this.iuser.findById(id);
+    public void SaveUpdate (User usuario){
+        iuser.save(usuario);
     }
-    /*public Optional <User> updateByid(User request , Long id){
-        Optional<User> user = iuser.findById(id);
-        user.
-    }*/
+    public void delete(Long id){
+        iuser.deleteById(id);
+    }
+     public void cambiarPassword(Long idpersona, String nuevoPassword) {
+        Optional<User> usuarioOpt = iuser.findById(idpersona);
+        if (usuarioOpt.isPresent()) {
+            User usuario = usuarioOpt.get();
+            usuario.setPasword(nuevoPassword);
+            iuser.save(usuario);
+        }
+    }
 }

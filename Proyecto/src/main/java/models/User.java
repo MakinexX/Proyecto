@@ -6,41 +6,32 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Table(name ="usuarios")
+@Data
 public class User {
+private static final long serialVersionUID = 1L;
     @Id
-    @OneToOne
-    @JoinColumn(name = "idpersona")
-    
-    private Persona persona;
+    @Column(name = "idpersona")
+    private Long idPersona;
+    @Id
     @Column(name ="login")
-    String login;
+    private String login;
     @Column(name ="password")
-    String password;
-
-    public Persona getPersona() {
-        return persona;
+    private String pasword;
+    @OneToOne
+    @JoinColumn(name = "idpersona", insertable = false, updatable = false)
+    private Persona persona;
+    public User() {
+   
     }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }        
+ public User( Long idPersona,String login,String pasword,Persona persona) {
+    this.idPersona=idPersona;
+    this.login=login;
+    this.pasword=pasword;
+    this.persona=persona;
+   
+    }       
 }
