@@ -2,21 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package services;
+package com.example.demo.services;
 
-import controller.PersonaController;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import models.User;
+import com.example.demo.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import respositories.IUser;
+import com.example.demo.respositories.IUser;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Bichin
  */
+@Service
 public class userServices {
     @Autowired
    IUser iuser ;

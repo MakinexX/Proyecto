@@ -1,5 +1,6 @@
-package models;
+package com.example.demo.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -37,7 +38,10 @@ public class Persona {
     private Integer edad;
     @Column(name ="edadclinica")
     private Integer edadclinica;
-
+    
+    @OneToOne(mappedBy = "personas", cascade = CascadeType.ALL)
+    private User user;
+    
     public Persona() {
     }
     

@@ -1,9 +1,10 @@
-package models;
+package com.example.demo.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -22,7 +23,8 @@ private static final long serialVersionUID = 1L;
     @Column(name ="password")
     private String pasword;
     @OneToOne
-    @JoinColumn(name = "idpersona", insertable = false, updatable = false)
+    @MapsId
+    @JoinColumn(name = "idpersona",referencedColumnName = "idpersona")
     private Persona persona;
     public User() {
    

@@ -2,18 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package services;
+package com.example.demo.services;
 
 import java.util.ArrayList;
 import java.util.Optional;
-import models.Persona;
+import com.example.demo.models.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
-import respositories.IPersonaRepository;
+import com.example.demo.respositories.IPersonaRepository;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Bichin
  */
+@Service
 public class PersonaService {
 
     @Autowired
