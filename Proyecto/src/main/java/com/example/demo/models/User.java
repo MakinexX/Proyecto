@@ -76,5 +76,4 @@ public class User {
     private String crearLogin(Persona persona){
         return persona.getPnombre()+persona.getIdentificacion().toString();           
     }
-
 }

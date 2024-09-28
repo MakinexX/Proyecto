@@ -70,7 +70,7 @@ public class UserController {
               Optional<Persona> byId = pService.getById(idPersona);
               if(byId.isPresent()){
                   user.setId(new UserPk(pService.getById(idPersona).get()));
-                 user.setPassword("prueba");
+                 user.setPassword("prueba");                
                   userS.save(user);
                   
               }

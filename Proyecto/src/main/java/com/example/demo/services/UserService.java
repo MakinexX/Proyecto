@@ -7,6 +7,7 @@ import com.example.demo.respositories.IPersonaRepository;
 import com.example.demo.respositories.IuserRepository;
 import java.util.ArrayList;
 import java.util.Optional;
+import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +29,9 @@ public class UserService {
       
     public User save(User user){
         //User user= new User(new UserPk(p.findById(1L).get(), "login"), "paword", "apikey");
+        //Apikey generada 
+        String apikeyGenerada = RandomStringUtils.randomAlphanumeric(20);
+        user.setApiKey(apikeyGenerada);
          return userR.save(user);
     }  
      public boolean delete(UserPk user){
